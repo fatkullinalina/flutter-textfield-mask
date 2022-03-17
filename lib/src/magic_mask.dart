@@ -101,15 +101,12 @@ class MagicMask {
         if (_lastMaskType() == _token) _tags.last[_type] = _tokenOpt;
       } else if (currentChar == '!') {
         if (_lastMaskType() == _fixChar) _tags.last[_type] = _forcedChar;
-      } else if (currentChar == '9') {
-        _tags.add({_type: _token, _value: '\\d'});
-      } else if (currentChar == 'A') {
-        _tags.add({_type: _token, _value: '[a-zA-z]'});
-      } else if (currentChar == 'N') {
-        _tags.add({_type: _token, _value: '[a-zA-z0-9]'});
-      } else if (currentChar == 'X') {
-        _tags.add({_type: _token, _value: '.'});
-      } else {
+      } else if (currentChar == 'x') {
+        _tags.add({_type: _token, _value: '\\d'});}
+      else if (currentChar == 'M') {
+        _tags.add({_type: _token, _value: '[А-Яа-яA-Za-z]'});
+      }
+       else {
         _tags.add({_type: _fixChar, _value: currentChar});
       }
     }
