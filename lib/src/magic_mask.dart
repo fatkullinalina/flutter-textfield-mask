@@ -91,17 +91,7 @@ class MagicMask {
   void _processMask(String mask) {
     for (var i = 0; i < mask.length; i++) {
       String currentChar = mask[i];
-      if (currentChar == '\\') {
-        _tags.add({_type: _fixChar, _value: mask[i + 1]});
-      } else if (currentChar == '*') {
-        if (_lastMaskType() == _token) _tags.last[_type] = _multipleOpt;
-      } else if (currentChar == '+') {
-        if (_lastMaskType() == _token) _tags.last[_type] = _multiple;
-      } else if (currentChar == '?') {
-        if (_lastMaskType() == _token) _tags.last[_type] = _tokenOpt;
-      } else if (currentChar == '!') {
-        if (_lastMaskType() == _fixChar) _tags.last[_type] = _forcedChar;
-      } else if (currentChar == 'x') {
+     if (currentChar == 'x') {
         _tags.add({_type: _token, _value: '\\d'});}
       else if (currentChar == 'M') {
         _tags.add({_type: _token, _value: '[А-Яа-яA-Za-z]'});
